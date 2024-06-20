@@ -29,7 +29,7 @@ export default function Blog() {
 
       <Header/> 
       <div id={styles.boxInformation}>
-        <h1 id={styles.waiting}>A pagina está sendo construída... Aguarde.</h1>
+        <h1 id={styles.waiting}>Novidades a caminho. Fique atento!</h1>
       </div>
     </div>
   )
