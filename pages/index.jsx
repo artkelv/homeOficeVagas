@@ -28,6 +28,8 @@ export default function Home() {
   const [citys, setCitys] = useState();
   const [dataLocal, setDataLocal] = useState();
 
+  const [testePaises, setTestePaises] = useState();
+
   const [countrySelect , setCountrySelect] = useState();
   const [citySelect , setCitySelect] = useState();
   
@@ -53,7 +55,7 @@ export default function Home() {
       const dataCountrys = data.map((item) => item.pais)
 
       setDataLocal(data)
-      setCountrys([...new Set(dataCountrys)])
+      setCountrys([...new Set(dataCountrys)].filter((item) => item.length > 1));
     })
     .catch((error) => {
       return null

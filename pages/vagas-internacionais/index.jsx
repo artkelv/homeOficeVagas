@@ -8,6 +8,9 @@ import { robotoFlex } from "@/fonts/font";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { searchByJobs } from "@/redux/searchJobs/searchJobsSlice";
+
+import Swal from 'sweetalert2';
+
 import Link from "next/link";
 import Head from "next/head";
 
@@ -34,7 +37,7 @@ export default function VagasInternacionais() {
     setVagasMostradas([...vagasMostradas, ...maisNomes]);
     
     if(jobs.length === vagasMostradas.length){
-      alert("As vagas acabaram!")
+      Swal.fire("As vagas acabaram!");
     }else{
       return null
     }
@@ -51,7 +54,7 @@ export default function VagasInternacionais() {
 
     axios(configApi)
     .then((response) => {
-      setJobs(response.data)
+      setJobs(response.data.reverse())
 
       const countrys = response.data.map((item) => item.pais)
       setDataCountrys([...new Set(countrys)]);
