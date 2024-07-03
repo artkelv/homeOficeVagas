@@ -8,13 +8,15 @@ import { robotoFlex } from "@/fonts/font";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { searchByJobs } from "@/redux/searchJobs/searchJobsSlice";
+
+import Swal from 'sweetalert2';
+
 import Link from "next/link";
 import Head from "next/head";
 
 export default function VagasLocais() {
   const [nameJobChoice, setNameJobChoice] = useState();
   const [cityChoice, setCityChoice] = useState(); 
-  const [dataCountrys, setDataCountrys] = useState();
   const [message, setMessage] = useState("Aguarde um momento...");
 
   const[jobs, setJobs] = useState();
@@ -32,7 +34,7 @@ export default function VagasLocais() {
     setVagasMostradas([...vagasMostradas, ...maisNomes]);
     
     if(jobs.length === vagasMostradas.length){
-      alert("As vagas acabaram!")
+      Swal.fire("As vagas acabaram!");
     }else{
       return null
     }
@@ -49,10 +51,7 @@ export default function VagasLocais() {
 
     axios(configApi)
     .then((response) => {
-      setJobs(response.data)
-
-      const countrys = response.data.map((item) => item.pais)
-      setDataCountrys([...new Set(countrys)]);
+      setJobs(response.data.reverse())
     }).catch((error) => {
       return null
     }) 
