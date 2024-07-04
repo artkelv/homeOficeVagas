@@ -184,7 +184,7 @@ export default function VagasLocais() {
               <div className={styles.boxTitle}>
                   {/* <h2 className={styles.title}>{card.tituloDaVaga}</h2> */}
                   {card.tipoDeTrabalho === "Projeto" || card.tipoDeTrabalho === "projeto" ? <h2 className={styles.tituloDaVagaProjeto}>{card.tituloDaVaga}</h2> : <h2 className={styles.title}>{card.tituloDaVaga}</h2>}
-                  <h3 className={styles.remuneration}>{card.salario}/{card.tipoDeTrabalho}</h3>
+                  <h3 className={styles.remuneration}>{card.salario} {card.moeda}/{card.tipoDeTrabalho}</h3>
               </div>
               <div className={styles.boxDescription}>
                   <p className={styles.descriptionJob}>{card.descricaoDaVaga}</p>
