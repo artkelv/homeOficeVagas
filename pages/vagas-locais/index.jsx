@@ -182,7 +182,6 @@ export default function VagasLocais() {
           {vagasMostradas ? vagasMostradas.length > 0 ? vagasMostradas.map((card, index) => (
             <div key={card.id} className={styles.card}>
               <div className={styles.boxTitle}>
-                  {/* <h2 className={styles.title}>{card.tituloDaVaga}</h2> */}
                   {card.tipoDeTrabalho === "Projeto" || card.tipoDeTrabalho === "projeto" ? <h2 className={styles.tituloDaVagaProjeto}>{card.tituloDaVaga}</h2> : <h2 className={styles.title}>{card.tituloDaVaga}</h2>}
                   <h3 className={styles.remuneration}>{card.salario} {card.moeda}/{card.tipoDeTrabalho}</h3>
               </div>
